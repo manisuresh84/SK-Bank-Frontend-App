@@ -12,17 +12,19 @@ export class RestServerService{
     constructor(private httpService : Http, private httpClientService : HttpClient){}
 
     storeUser(user : UserInfoModel){
-        const customHeaders = new Headers({
-            // 'Access-Control-Allow-Origin':'*',
-            // 'Content-Type':'application/json',
-            'Accept':'application/json'
-        });
+        // const customHeaders = new Headers({
+        //     'Access-Control-Allow-Origin':'*',
+        //     'Access-Control-Allow-Methods':'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+        //     'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept, x-auth',
+        //     'Content-Type':'application/json',
+        //     'Accept':'application/json'
+        // });
         
-        return this.httpService.post('http://localhost:8080/bankmanagement/api/users', 
-        user,{headers: customHeaders});
-        //  return this.httpService.
-        //  post('http://localhost:8080/bankmanagement/api/users',
-        //  user);
+        // return this.httpService.post('http://localhost:8080/bankmanagement/api/users', 
+        // user,{headers: customHeaders});
+          return this.httpService.
+          post('http://localhost:8080/bankmanagement/api/users',
+          user);
     }
 
     getUsers(){

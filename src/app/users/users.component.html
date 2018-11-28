@@ -30,7 +30,8 @@
           <tr *ngFor="let user of users | filter:filteredUserInfo:'accountHolderName'">
             <td>{{ user.accountNumber }}</td>
             <td>{{ user.accountType }}</td>
-            <td>{{ user.accountHolderName | shorten:15 }}</td>
+            <!-- <td>{{ user.accountHolderName | shorten:15 }}</td> -->
+            <td>{{ user.accountHolderName }}</td>
             <td>{{ user.accountBalance }}</td>
           </tr>
         </table>
