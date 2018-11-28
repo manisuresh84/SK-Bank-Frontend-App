@@ -1,0 +1,21 @@
+{
+  "TITLE_USER_DETAIL": "User Details",
+  "USERNAME": "User Name",
+  "ACCNUMBER": "Account Number",
+  "FILTERHOLDERNAME": "Filter By Holder Name",
+  "ACCOUNTTYPE": "Account Type",
+  "ACCOUNTHOLDERNAME": "Account Holder Name",
+  "ACCOUNTBALANCE": "Account Balance",
+  "PERFORMTRANSACTION": "Perform Transacion",
+  "TRANSACTIONTYPE": "Transaction Type",
+  "TRANSACTIONDESC": "Transaction Description",
+  "TRANSACTIONAMOUNT": "Transaction Amount",
+  "TRANSACTIONID": "Transaction Id",
+  "TRANSACTIONNUMBER": "Transaction Number",
+  "SEARCHTRANSACTION": "Search Transaction",
+  "SAVEUSER": "Save User",
+  "AMOUNT": "Amount",
+  "WELCOME": "Welcome to SK Bank",
+  "NOTE": "Manage your Users and Transaction",
+  "MARQUEE": "SK Bank welcomes you!!, Have a Nice Day!"
+}

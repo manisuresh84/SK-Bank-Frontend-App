@@ -1,0 +1,52 @@
+<div>
+  <br>
+  <a routerLink="/" style="float:right">Back to Home</a>
+  <br>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <b><h2 align="center">{{'PERFORMTRANSACTION' | translate}}</h2></b>
+      <br>
+    <form (ngSubmit)="onSubmit()" #transaction="ngForm">
+      <div class="form-group">
+        <label for="accountnumber">{{'ACCNUMBER' | translate}}</label>
+        <input type="text" id="accountnumber" class="form-control" 
+        [ngModel]="defaultAccNo" name="accountnumber"
+        maxlength="16"
+        OnlyNumber="true" required #accno="ngModel">
+        <span class="help-block" *ngIf="!accno.valid && accno.touched">Please enter valid account number!</span>
+      </div>
+      <div class="form-group">
+        <label for="transactiontype">{{'TRANSACTIONTYPE' | translate}}</label>
+        <select id="transactiontype" class="form-control" [ngModel]="defaultTransType" name="transactiontype" required
+          #transtype="ngModel">
+          <option value="Withdrawal">Withdrawal</option>
+          <option value="Deposit">Deposit</option>
+        </select>
+        <span class="help-block" *ngIf="!transtype.valid && transtype.touched">Please select transaction type!</span>
+      </div>
+      <div class="form-group">
+        <label for="transactiondescription">{{'TRANSACTIONDESC' | translate}}</label>
+        <input type="text" id="transactiondescription" class="form-control" [ngModel]="defaultTransDesc" name="transactiondescription"
+          required #transdesc="ngModel">
+        <span class="help-block" *ngIf="!transdesc.valid && transdesc.touched">Please enter valid transaction
+          description!</span>
+      </div>
+      <div class="form-group">
+        <label for="transactionamount">{{'TRANSACTIONAMOUNT' | translate}}</label>
+        <input type="text" id="transactionamount" class="form-control" 
+        [ngModel]="defaultTransAmt" name="transactionamount"
+        OnlyNumber="true"
+          required #transamt="ngModel">
+        <span class="help-block" *ngIf="!transamt.valid && transamt.touched">Please enter valid amount!</span>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!transaction.valid">Perform Transaction</button>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Successfully performed the transaction</p>
+  </div> -->

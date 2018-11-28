@@ -1,0 +1,61 @@
+<div>
+  <br>
+  <a routerLink="/" style="float:right">Back to Home</a>
+  <br>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <b>
+      <!-- <h2 align="center">Save User</h2> -->
+      <h2 align="center">{{'SAVEUSER' | translate}}</h2>
+    </b>
+    <br>
+
+    <form (ngSubmit)="onSubmit()" #saveuser="ngForm">
+      <div class="form-group">
+        <label for="accountNumber">{{'ACCNUMBER' | translate}}</label>
+        <input type="text" id="accountNumber" class="form-control" 
+        [ngModel]="defaultAccNo" name="accountNumber"
+        OnlyNumber="true" maxlength="16"
+          required #accountNumber="ngModel">
+        <span class="help-block" *ngIf="!accountNumber.valid && accountNumber.touched">Please enter valid account
+          number!</span>
+      </div>
+      <div class="form-group">
+        <label for="accountType">{{'ACCOUNTTYPE' | translate}}</label>
+        <select id="accountType" class="form-control" [ngModel]="defaultAccType" name="accountType" required
+          #accountType="ngModel">
+          <option value="Salary">Salary</option>
+          <option value="Saving">Saving</option>
+          <option value="Personal">Personal</option>
+        </select>
+        <span class="help-block" *ngIf="!accountType.valid && accountType.touched">Please select account type!</span>
+      </div>
+      <div class="form-group">
+        <label for="accHolderName">{{'ACCOUNTHOLDERNAME' | translate}}</label>
+        <input type="text" id="accHolderName" class="form-control" [ngModel]="defaultAccHolderName" name="accHolderName"
+          required #accHolderName="ngModel">
+        <span class="help-block" *ngIf="!accHolderName.valid && accHolderName.touched">Please enter valid account
+          holder name!</span>
+      </div>
+      <div class="form-group">
+        <label for="amount">{{'AMOUNT' | translate}}</label>
+        <input type="text" id="amount" class="form-control" [ngModel]="defaultAmt" name="amount" required #amount="ngModel">
+        <span class="help-block" *ngIf="!amount.valid && amount.touched">Please enter valid amount!</span>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!saveuser.valid">Save User</button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row" *ngIf="submitted">
+  <div class="col-xs-12">
+    <h3>Your Data</h3>
+    <p>Account Number :{{user.accountNumber}}</p>
+    <p>Account Type :{{user.accountType}}</p>
+    <p>Account Holder :{{user.accountHolderName}}</p>
+    <p>Account Balance:{{user.accountBalance}}</p>
+  </div>
+</div>

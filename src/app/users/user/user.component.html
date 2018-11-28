@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSubmit()" #searchUser="ngForm">
+      <div class="form-group">
+        <label for="username">{{'USERNAME' | translate}}</label>
+        <input type="text" id="username" class="form-control" [ngModel]="defaultUserName" name="username" #accname="ngModel">
+        <span class="help-block" *ngIf="!accname.valid && accname.touched">Please enter valid account name!</span>
+      </div>
+      <div class="form-group">
+        <label for="accountnumber">{{'ACCNUMBER' | translate}}</label>
+        <input type="text" id="accountnumber" class="form-control" 
+        [ngModel]="defaultAccNo" name="accountnumber" #accno="ngModel"
+        maxlength="16" OnlyNumber="true"
+        >
+        <span class="help-block" *ngIf="!accno.valid && accno.touched">Please enter valid account number!</span>
+      </div>
+      <!-- <button class="btn btn-primary" type="submit"
+      [disabled]="!searchuser.valid">Search User</button> -->
+
+      <button class="btn btn-primary" type="submit" [disabled]="!searchUser.valid">Search User</button>
+
+      &nbsp; &nbsp;
+      <button class="btn btn-primary" type="button" (click)="onAddUser()">Add User</button>
+    </form>
+    
+  </div>
+</div>
+
+<div class="col-xs-12" *ngIf="submitted">
+    <div class="list-group">
+      <!-- <br><br>
+      <label for="filterData">Filter User Info</label>
+      <input type="text" id="filterData" class="form-control" [(ngModel)]="filteredUserInfo"> -->
+      <br><br>
+      <table class="table table-bordered table-striped"> 
+        <tr>
+          <th scope="col">Accout Number</th>
+          <th scope="col">Account Type</th>
+          <th scope="col">Account Holder Name</th>
+          <th scope="col">Account Balance</th>
+        </tr>
+        <tr>
+          <td>{{ user.accountNumber }}</td>
+          <td>{{ user.accountType }}</td>
+          <td>{{ user.accountHolderName}}</td>
+          <td>{{ user.accountBalance }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>

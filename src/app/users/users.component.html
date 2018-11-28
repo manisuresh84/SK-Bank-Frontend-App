@@ -1,0 +1,42 @@
+<div>
+  <br>
+  <a routerLink="/" style="float:right">Back to Home</a>
+  <br>
+</div>
+<div class="row">
+  <b>
+    <!-- <h2 align="center">{{User Details}}</h2> -->
+    <h2 align="center">{{'TITLE_USER_DETAIL' | translate }}</h2>
+  </b>
+  <br>
+  <div class="col-xs-12 col-sm-10 col-md-8">
+    <app-user></app-user>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="list-group">
+      <br><br>
+      <label for="filterData">{{'FILTERHOLDERNAME' | translate}}</label>
+      <input type="text" id="filterData" class="form-control" [(ngModel)]="filteredUserInfo">
+      <br><br>
+      <div class="table-wrapper-scroll-y">
+        <table class="table table-bordered table-striped table-sm">
+          <tr>
+            <th scope="col">{{'ACCNUMBER' | translate}}</th>
+            <th scope="col">{{'ACCOUNTTYPE' | translate}}</th>
+            <th scope="col">{{'ACCOUNTHOLDERNAME' | translate}}</th>
+            <th scope="col">{{'ACCOUNTBALANCE' | translate}}</th>
+          </tr>
+          <tr *ngFor="let user of users | filter:filteredUserInfo:'accountHolderName'">
+            <td>{{ user.accountNumber }}</td>
+            <td>{{ user.accountType }}</td>
+            <td>{{ user.accountHolderName | shorten:15 }}</td>
+            <td>{{ user.accountBalance }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</div>

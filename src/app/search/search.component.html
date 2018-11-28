@@ -1,0 +1,81 @@
+<div>
+  <br>
+  <a routerLink="/" style="float:right">Back to Home</a>
+  <br>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <b>
+      <h2 align="center">{{'SEARCHTRANSACTION' | translate}}</h2>
+    </b>
+    <br>
+
+    <form (ngSubmit)="onSubmit()" #search="ngForm">
+      <div class="form-group">
+        <label for="accountnumber">{{'ACCNUMBER' | translate}}</label>
+        <input type="text" id="accountnumber" class="form-control" 
+        [ngModel]="defaultAccNo" name="accountnumber" #accno="ngModel"
+        maxlength="16"
+        OnlyNumber="true">
+        <span class="help-block" *ngIf="!accno.valid && accno.touched">Please enter valid account number!</span>
+      </div>
+      <div class="form-group">
+        <label for="transactionnumber">{{'TRANSACTIONNUMBER' | translate}}</label>
+        <input type="text" id="transactionnumber" class="form-control" 
+        [ngModel]="defaultTransNo" name="transactionnumber"
+          #tranNo="ngModel" maxlength="10"
+          OnlyNumber="true">
+        <span class="help-block" *ngIf="!tranNo.valid && tranNo.touched">Please enter valid transaction number!</span>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!search.valid">Search</button>
+    </form>
+  </div>
+</div>
+
+<div class="col-xs-12" *ngIf="submittedTransId">
+  <div class="list-group">
+
+    <br><br>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th scope="col">{{'ACCNUMBER' | translate}}</th>
+        <th scope="col">{{'TRANSACTIONID' | translate}}</th>
+        <th scope="col">{{'TRANSACTIONDESC' | translate}}</th>
+        <th scope="col">{{'TRANSACTIONTYPE' | translate}}</th>
+        <th scope="col">{{'TRANSACTIONAMOUNT' | translate}}</th>
+      </tr>
+      <!-- <tr> -->
+      <tr *ngFor="let transactionDetail of transactionDetailList">
+        <td>{{ transactionDetail.accountNumber }}</td>
+        <td>{{ transactionDetail.transactionId }}</td>
+        <td>{{ transactionDetail.transactionDescription}}</td>
+        <td>{{ transactionDetail.transactionType }}</td>
+        <td>{{ transactionDetail.transactionAmount }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="col-xs-12" *ngIf="submittedAccNo">
+  <div class="list-group">
+
+    <br><br>
+    <table class="table table-bordered table-striped">
+      <tr>
+          <th scope="col">{{'ACCNUMBER' | translate}}</th>
+          <th scope="col">{{'TRANSACTIONID' | translate}}</th>
+          <th scope="col">{{'TRANSACTIONDESC' | translate}}</th>
+          <th scope="col">{{'TRANSACTIONTYPE' | translate}}</th>
+          <th scope="col">{{'TRANSACTIONAMOUNT' | translate}}</th>
+      </tr>
+      <tr *ngFor="let transactionDetail of transactionDetailList">
+        <td>{{ transactionDetail.accountNumber }}</td>
+        <td>{{ transactionDetail.transactionId }}</td>
+        <td>{{ transactionDetail.transactionDescription}}</td>
+        <td>{{ transactionDetail.transactionType }}</td>
+        <td>{{ transactionDetail.transactionAmount }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

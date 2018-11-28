@@ -1,0 +1,21 @@
+{
+  "TITLE_USER_DETAIL": "Détails de l'utilisateur",
+  "USERNAME": "Nom d'utilisateur",
+  "ACCNUMBER": "Numéro de compte",
+  "FILTERHOLDERNAME": "Filtrer par nom de titulaire",
+  "ACCOUNTTYPE": "Type de compte",
+  "ACCOUNTHOLDERNAME": "Nom du titulaire du compte",
+  "ACCOUNTBALANCE": "Solde du compte",
+  "PERFORMTRANSACTION ": "Effectuer Transacion",
+  "TRANSACTIONTYPE": "Type de transaction",
+  "TRANSACTIONDESC": "Description de la transaction",
+  "TRANSACTIONAMOUNT": "Montant de la transaction",
+  "TRANSACTIONID": "Identifiant de transaction",
+  "TRANSACTIONNUMBER": "Numéro de transaction",
+  "SEARCHTRANSACTION": "Recherche de transaction",
+  "SAVEUSER": "Enregistrer l'utilisateur",
+  "AMOUNT": "montant",
+  "WELCOME": "Bienvenue chez SK Bank",
+  "NOTE": "Gérez vos utilisateurs et vos transactions",
+  "MARQUEE": "SK Bank vous souhaite la bienvenue !!, passez une bonne journée!"
+}
